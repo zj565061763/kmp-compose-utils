@@ -18,6 +18,7 @@ fun App() {
         RouteHome(
           onClickSampleClick = { navController.navigate(AppRoute.SampleClick) },
           onClickSamplePin = { navController.navigate(AppRoute.SamplePin) },
+          onClickSampleVerticalGrid = { navController.navigate(AppRoute.SampleVerticalGrid) },
         )
       }
       composable<AppRoute.SampleClick> {
@@ -25,6 +26,9 @@ fun App() {
       }
       composable<AppRoute.SamplePin> {
         SamplePin(onClickBack = { navController.popBackStack() })
+      }
+      composable<AppRoute.SampleVerticalGrid> {
+        SampleVerticalGrid(onClickBack = { navController.popBackStack() })
       }
     }
   }

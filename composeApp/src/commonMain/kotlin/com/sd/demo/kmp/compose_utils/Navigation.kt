@@ -11,4 +11,7 @@ sealed interface AppRoute {
 
   @Serializable
   data object SamplePin : AppRoute
+
+  @Serializable
+  data object SampleVerticalGrid : AppRoute
 }

@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 fun RouteHome(
   onClickSampleClick: () -> Unit,
   onClickSamplePin: () -> Unit,
+  onClickSampleVerticalGrid: () -> Unit,
 ) {
   Scaffold { padding ->
     Column(
@@ -22,6 +23,7 @@ fun RouteHome(
     ) {
       Button(onClick = onClickSampleClick) { Text(text = "SampleClick") }
       Button(onClick = onClickSamplePin) { Text(text = "SamplePin") }
+      Button(onClick = onClickSampleVerticalGrid) { Text(text = "SampleVerticalGrid") }
     }
   }
 }
