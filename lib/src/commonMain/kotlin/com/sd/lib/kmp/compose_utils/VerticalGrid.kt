@@ -2,8 +2,9 @@ package com.sd.lib.kmp.compose_utils
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -34,17 +35,23 @@ fun FVerticalGrid(
     safeCount to maxIndex
   }
 
-  @OptIn(ExperimentalLayoutApi::class)
-  FlowRow(
+  Column(
     modifier = modifier,
-    horizontalArrangement = Arrangement.spacedBy(horizontalSpacing),
-    verticalArrangement = Arrangement.spacedBy(verticalSpacing),
-    maxItemsInEachRow = itemCountPerRow,
+    verticalArrangement = Arrangement.spacedBy(verticalSpacing)
   ) {
-    repeat(safeCount) { index ->
-      Box(modifier = Modifier.weight(1f)) {
-        if (index <= maxIndex) {
-          itemContent(index)
+    val rowCount = safeCount / itemCountPerRow
+    repeat(rowCount) { rowIndex ->
+      Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(horizontalSpacing),
+      ) {
+        repeat(itemCountPerRow) { columnIndex ->
+          Box(modifier = Modifier.weight(1f)) {
+            val index = (rowIndex * itemCountPerRow) + columnIndex
+            if (index <= maxIndex) {
+              itemContent(index)
+            }
+          }
         }
       }
     }
