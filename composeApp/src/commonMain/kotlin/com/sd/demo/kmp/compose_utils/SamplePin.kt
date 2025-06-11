@@ -17,6 +17,7 @@ fun SamplePin(
   RouteScaffold(
     title = "SamplePin",
     onClickBack = onClickBack,
+    verticalScroll = false,
   ) {
     LazyColumn(modifier = Modifier.fillMaxSize()) {
       items(100) { index ->
