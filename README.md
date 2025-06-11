@@ -7,5 +7,5 @@ Compose Multiplatform utils library.
 # Gradle
 
 ```kotlin
-implementation("io.github.zj565061763.kmp:compose-utils:2025.02.01")
+implementation("io.github.zj565061763.kmp:compose-utils:2025.06.01")
 ```
